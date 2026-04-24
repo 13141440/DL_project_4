@@ -2,8 +2,8 @@
 
 ## 1. Cover Information
 
-- **Name:** [Your Name]
-- **Student ID:** [Your Student ID]
+- **Name:** Wangqiantong
+- **Student ID:** 2024011305
 
 ## 2. Generative AI Usage Disclosure
 
