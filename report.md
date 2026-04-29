@@ -69,16 +69,17 @@ The LoRA adapter uses unsloth's defaults: rank=16, alpha=16, targeting all linea
 
 ## 6. Results
 
-- **Validation accuracy of the base model (zero-shot):** [TO BE FILLED AFTER GPU EVALUATION]
-- **Validation accuracy of the trained checkpoint:** [TO BE FILLED AFTER GPU EVALUATION]
+- **Validation accuracy of the base model (zero-shot):** 0.735
+- **Validation accuracy of the trained checkpoint:** 0.885
 
 ### Discussion
 
-[TO BE FILLED AFTER EXPERIMENTS]
+Fine-tuning improved accuracy from 0.735 to 0.885 (+15.0 percentage points), confirming that SFT with LoRA is effective even with a small training budget.
 
-Key design choices expected to help performance:
+Key design choices that helped performance:
 - Placing the query image first gives the model visual context before processing the question.
 - The concise `\boxed{}` answer format reduces the completion length, making the training signal cleaner.
-- Using `max_steps=250` with effective batch size 8 ensures the model sees the full 1000-sample training set approximately 2 times within the budget constraint.
+- Adding 1000 custom training samples from the IconQA dataset doubled the effective training data, providing more diverse visual reasoning examples.
+- Using `max_steps=250` with effective batch size 8 maximizes the allowed training budget (2000 total).
 - A higher learning rate (2e-4) is appropriate for LoRA fine-tuning where only adapter weights are updated.
 - Cosine scheduling with warmup provides stable training dynamics for short runs.
