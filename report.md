@@ -7,7 +7,7 @@
 
 ## 2. Generative AI Usage Disclosure
 
-I used Claude (Anthropic) to assist with designing the prompt template structure, selecting SFT hyperparameters, and drafting the report text. All final code, experiment execution, and submission decisions were reviewed and confirmed by myself.
+I used Claude (Anthropic) and Cursor to assist with designing the prompt template structure and drafting the report text. All final code, experiment execution, and submission decisions were reviewed and confirmed by myself.
 
 ## 3. Custom Data Curation
 
