@@ -32,27 +32,21 @@ _FILENAME_TO_LETTER = {v: k for k, v in _LETTER_TO_FILENAME.items()}
 
 
 _INSTRUCTION = (
-    "You will see a reference image and two candidate images labelled A and B. "
-    "Decide which candidate image best answers the question. "
-    "Reply with only the chosen letter inside \\boxed{}, "
-    "either \\boxed{A} or \\boxed{B}. Do not output anything else."
+    "Look at the image and the two choices below. "
+    "Which choice answers the question? "
+    "Answer with \\boxed{A} or \\boxed{B}."
 )
 
 
 def _build_user_content(sample: IconQASample) -> list[dict[str, Any]]:
     return [
-        {"type": "text", "text": _INSTRUCTION},
-        {"type": "text", "text": f"Question: {sample['question']}"},
-        {"type": "text", "text": "Reference image:"},
         {"type": "image", "image": sample["query_image"]},
-        {"type": "text", "text": "Choice A:"},
+        {"type": "text", "text": f"Question: {sample['question']}"},
+        {"type": "text", "text": "A:"},
         {"type": "image", "image": sample["choice_image_0"]},
-        {"type": "text", "text": "Choice B:"},
+        {"type": "text", "text": "B:"},
         {"type": "image", "image": sample["choice_image_1"]},
-        {
-            "type": "text",
-            "text": "Final answer (only \\boxed{A} or \\boxed{B}):",
-        },
+        {"type": "text", "text": _INSTRUCTION},
     ]
 
 
